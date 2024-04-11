@@ -22,7 +22,7 @@ export class WalletService {
 
     const createdWallet = new this.walletModel({
       ...createWalletDto,
-      userId, // Use userId consistently with the schema definition
+      userId,
     });
     return createdWallet.save();
   }

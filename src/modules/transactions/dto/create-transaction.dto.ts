@@ -1,5 +1,9 @@
+import { IsNotEmpty } from 'class-validator';
 
-export class createTransactionDto {
-    readonly amount: number;
-    readonly to: number;
+export class CreateTransactionDto {
+  @IsNotEmpty()
+  readonly amount: number;
+  @IsNotEmpty()
+  readonly to: string;
+  readonly userId: string;
 }
