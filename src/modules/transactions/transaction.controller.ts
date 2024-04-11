@@ -3,16 +3,24 @@ import {
   Controller,
   Get,
   Post,
-  Put,
   Request,
   UseGuards,
 } from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiBody,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
 import { AuthGuard } from '../auth/auth.guard';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
 import { Transaction } from './interface/transaction.interface';
 import { TransactionService } from './transaction.service';
 import { WalletService } from '../wallet/wallet.service';
 
+@ApiTags('Transaction') // Add Swagger tag
+@ApiBearerAuth() // Add Swagger bearer authentication
 @Controller('/api/v1/')
 export class TransactionController {
   constructor(
@@ -22,10 +30,17 @@ export class TransactionController {
 
   @UseGuards(AuthGuard)
   @Post('transaction')
+  @ApiOperation({ summary: 'Create Transaction' }) // Add Swagger operation summary
+  @ApiBody({ type: CreateTransactionDto }) // Add Swagger request body
+  @ApiResponse({
+    // Add Swagger response description
+    status: 200,
+    description: 'Transaction completed successfully',
+  })
   async createTransaction(
     @Request() req,
     @Body() createTransactionDto: CreateTransactionDto,
-  ): Promise<any> {
+  ): Promise<{ message: string }> {
     const senderId = req.user.sub;
     const receiverId = createTransactionDto.to.toString();
 
@@ -72,8 +87,15 @@ export class TransactionController {
 
     return { message: 'Transaction completed successfully' };
   }
+
   @UseGuards(AuthGuard)
   @Get('transaction')
+  @ApiOperation({ summary: 'Get Your Transactions' })
+  @ApiResponse({
+    status: 200,
+    description: 'List of your transactions',
+    type: [CreateTransactionDto],
+  })
   async getYourTransaction(@Request() req): Promise<Transaction[]> {
     const userId = req.user.sub;
     return this.transactionService.getYourTransaction(userId);
@@ -81,6 +103,12 @@ export class TransactionController {
 
   @UseGuards(AuthGuard)
   @Get('transaction/all')
+  @ApiOperation({ summary: 'Get All Transactions' })
+  @ApiResponse({
+    status: 200,
+    description: 'List of all transactions',
+    type: [CreateTransactionDto],
+  })
   async getAllTransactions(): Promise<Transaction[]> {
     return this.transactionService.getAllTransactions();
   }
