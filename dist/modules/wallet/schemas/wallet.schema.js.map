@@ -1,0 +1,1 @@
+{"version":3,"file":"wallet.schema.js","sourceRoot":"","sources":["../../../../src/modules/wallet/schemas/wallet.schema.ts"],"names":[],"mappings":";;;AAAA,qCAAqC;AAExB,QAAA,YAAY,GAAG,IAAI,QAAQ,CAAC,MAAM,CAAC;IAC9C,MAAM,EAAE,MAAM;IACd,MAAM,EAAE,EAAC,IAAI,EAAE,QAAQ,CAAC,MAAM,CAAC,KAAK,CAAC,QAAQ,EAAE,GAAG,EAAE,MAAM,EAAC;CAC5D,CAAC,CAAC"}

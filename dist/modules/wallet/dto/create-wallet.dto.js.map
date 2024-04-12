@@ -1,0 +1,1 @@
+{"version":3,"file":"create-wallet.dto.js","sourceRoot":"","sources":["../../../../src/modules/wallet/dto/create-wallet.dto.ts"],"names":[],"mappings":";;;;;;;;;;;;AAAA,qDAA6C;AAC7C,6CAA8C;AAE9C,MAAa,eAAe;CAQ3B;AARD,0CAQC;AADU;IANR,IAAA,qBAAW,EAAC;QACX,WAAW,EAAE,sDAAsD;QACnE,OAAO,EAAE,CAAC;QACV,OAAO,EAAE,IAAI;KACd,CAAC;IACD,IAAA,4BAAU,GAAE;;+CACW"}
