@@ -8,12 +8,5 @@ export class CreateTransactionDto {
   })
   @IsNotEmpty()
   readonly amount: number;
-  @ApiProperty({
-    description: 'Enter receiver id ',
-    minimum: 1,
-    default: '66182e6e50de25831066bf59',
-  })
-  @IsNotEmpty()
-  readonly to: string;
   readonly userId: string;
 }

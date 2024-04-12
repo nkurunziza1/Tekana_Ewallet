@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Param,
   Post,
   Request,
   UseGuards,
@@ -19,8 +20,8 @@ import { Transaction } from './interface/transaction.interface';
 import { TransactionService } from './transaction.service';
 import { WalletService } from '../wallet/wallet.service';
 
-@ApiTags('Transaction') // Add Swagger tag
-@ApiBearerAuth() // Add Swagger bearer authentication
+@ApiTags('Transaction') 
+@ApiBearerAuth()
 @Controller('/api/v1/')
 export class TransactionController {
   constructor(
@@ -29,21 +30,20 @@ export class TransactionController {
   ) {}
 
   @UseGuards(AuthGuard)
-  @Post('transaction')
-  @ApiOperation({ summary: 'Create Transaction' }) // Add Swagger operation summary
-  @ApiBody({ type: CreateTransactionDto }) // Add Swagger request body
+  @Post('transaction/:receiverId')
+  @ApiOperation({ summary: 'Create Transaction' }) 
+  @ApiBody({ type: CreateTransactionDto }) 
   @ApiResponse({
-    // Add Swagger response description
     status: 200,
     description: 'Transaction completed successfully',
   })
   async createTransaction(
     @Request() req,
     @Body() createTransactionDto: CreateTransactionDto,
+    @Param('receiverId') receiverId: string,
   ): Promise<{ message: string }> {
     const senderId = req.user.sub;
-    const receiverId = createTransactionDto.to.toString();
-
+    console.log('recieverId', req.params.receiverId);
     const senderWallet = await this.walletService.getWalletByUserId(senderId);
     const receiverWallet =
       await this.walletService.getWalletByUserId(receiverId);
