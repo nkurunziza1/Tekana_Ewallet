@@ -1,72 +1,58 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Tekana_Ewallet
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-  
-## Tekana-Ewallet
-## Description:
- This project is a secure and user-friendly application for managing transactions and wallets. Users can create and read wallets, as well as perform transactions securely. Authentication is required for all operations to ensure data privacy and security.
+## Description
+This an application that helps customers to transfer and receive  money
 
- ## Features:
- ## User Authentication: Users must be logged in to create and read wallets and perform transactions, ensuring data security.
-## Wallet Management: 
-Users can create and view their wallets to track their balances and transactions.
-## Transaction Management: 
-Users can securely perform transactions between wallets, enabling seamless money transfers.
-Data Privacy: 
-All user data and transactions are securely managed and protected, adhering to best practices for data privacy and security.
-Technologies Used:
-## Backend: NestJS, MongoDB
-## Authentication: JWT (JSON Web Tokens)
+## Strategies
 
+- ## User Registeration:
+  when the user want to transfer or receive money through  our app must have an account on our app
+  after creating account we require him/her to login and generate  token to be used on authorizing
+  and authentication
+
+- ## Login:
+  after successfull Login we allow him to create wallet on our account and start to transfer and
+  receive the money
+
+
+- ## wallet:
+- 
+   - ## create wallet:
+     client will create wallet by filling the amount of money he want to start with.
+
+       - ## best practice:
+         - Note: if it is not loggedIn he will not be able to create wallet
+
+   - ## Check wallet:
+     client will be able to  check  his/her wallet remaining amount
+
+   - ## Update wallet:
+     client should be able to update his wallet as long as the amount decreased in his wallet or
+     any time he/she want
+
+     
+- ## Transaction
+- 
+  - ## Send money (Transfer money):
+    Once User have Wallet can  transfer and receive the money
+     ## Note:
+       if client doesn't  have the wallet could not recieve and transfer the money
+
+  - ## Monitor transaction:
+     check all the transaction that you make. once You have logged in
+
+ ## Mannual Testing
 ## Installation
+
+```bash
+$ git clone repo
+```
 
 ```bash
 $ npm install
 ```
-
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
+@@ -58,16 +102,3 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
