@@ -21,10 +21,22 @@
 </p>
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+  
+## Tekana-Ewallet
+## Description:
+ This project is a secure and user-friendly application for managing transactions and wallets. Users can create and read wallets, as well as perform transactions securely. Authentication is required for all operations to ensure data privacy and security.
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+ ## Features:
+ ## User Authentication: Users must be logged in to create and read wallets and perform transactions, ensuring data security.
+## Wallet Management: 
+Users can create and view their wallets to track their balances and transactions.
+## Transaction Management: 
+Users can securely perform transactions between wallets, enabling seamless money transfers.
+Data Privacy: 
+All user data and transactions are securely managed and protected, adhering to best practices for data privacy and security.
+Technologies Used:
+## Backend: NestJS, MongoDB
+## Authentication: JWT (JSON Web Tokens)
 
 ## Installation
 
